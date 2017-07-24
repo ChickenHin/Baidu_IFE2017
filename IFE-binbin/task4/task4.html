@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>task4</title>
+	<style>
+		#queue div {
+			width: 40px;
+			height: 20px;
+			float: left;
+			background-color: red;
+			color: white;
+			text-align: center;
+			padding: 10px 0;
+			margin: 10px 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="operate">
+		<input type="text" id="data">
+		<button id="leftin">左侧入</button>
+		<button id="rightin">右侧入</button>
+		<button id="leftout">左侧出</button>
+		<button id="rightout">右侧出</button>
+	</div>
+	<div id="queue">
+	</div>
+
+<script>
+
+	var leftIn = document.getElementById("leftin");
+	var leftOut = document.getElementById("leftout");
+	var rightIn = document.getElementById("rightin");
+	var rightOut = document.getElementById("rightout");
+	var queue = document.getElementById("queue");
+
+	//判定是否为数字
+	function CheckNum(data) {
+		var isValid = !(isNaN(data) || data == "");
+		if(!isValid)
+			alert("请输入数字");
+		else
+			return true;
+	}
+
+	//左侧入
+	leftIn.onclick = function() {	
+	var data = document.getElementById("data").value;
+	
+	if(CheckNum(data)){
+	var block = document.createElement("div");
+	block.textContent = data;
+	queue.insertBefore(block,queue.firstChild);
+	//点击元素从队列中删除没有实现
+	// block.onclick = function(e) {
+	// 	var parentElement = e.parentNode;
+ 	// 			if(parentElement)
+ 	// 				parentElement.removeChild(e);
+	// }
+	}
+	}
+
+	//左侧出
+	leftOut.onclick = function() {
+	if(queue.firstChild)
+	queue.removeChild(queue.firstChild);
+	else
+		alert("不存在的");
+	}
+ 	
+ 	//右侧入
+ 	rightIn.onclick = function() {
+ 	var data = document.getElementById("data").value;
+ 	if(CheckNum(data)){
+	var block = document.createElement("div");
+	block.textContent = data;
+	queue.appendChild(block);
+	// block.onclick = function(e) {
+	// 	var parentElement = e.parentNode;
+ 	// 			if(parentElement)
+ 	// 				parentElement.removeChild(e);
+	// }
+	}
+ 	}
+
+ 	//右侧出
+ 	rightOut.onclick = function() {
+ 	if(queue.lastChild)
+	queue.removeChild(queue.lastChild);
+	else
+		alert("不存在的");
+ 	}
+
+</script>
+</body>
+</html>
