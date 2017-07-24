@@ -1,0 +1,47 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.container {
+	width: 600px;
+	margin: 10px auto;
+}
+label {	
+	background: #ccc;
+	border-radius: 5px;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	height: 40px;
+	width: 600px;
+	line-height: 40px;
+	margin-top: 2px;
+	text-indent: 1em;
+}
+input {
+	display: none;
+}
+div > div {
+	height: 0;
+	width: 598px;
+	text-indent: 2em;
+	transition: height 0.5s ease;
+	visibility: hidden;
+}
+p {
+	padding: 10px 15px;
+}
+input:hover + label {
+	background: #aaa;
+}
+input:checked + label {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+input:checked + label + div {
+	border: 1px solid #ccc;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	height: 100px;
+	visibility: visible;
+}
