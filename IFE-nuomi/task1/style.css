@@ -1,0 +1,92 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.container {
+	height: 360px;
+	width: 540px;
+	position: relative;
+	margin: 0 auto;
+}
+.box {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	height: 320px;
+	width: 500px;
+}
+.title {
+	height: 320px;
+	width: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -160px 0 0 -250px;
+}
+/*设置左半边和右半边颜色一致
+  背景宽度设为200%,当background-position趋向-100%时，右半部分会向右推动，实现文字流光方向向右的效果
+*/
+h1 {
+	background-image:-webkit-linear-gradient(left, yellow, red 25%, yellow 50%, red 75%, yellow 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: moveBg 14s infinite linear;
+	background-size: 200% 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -22.5px 0 0 -88.5px;
+	visibility: hidden;
+}
+@keyframes moveBg
+	{
+		from {background-position: 0 0;}
+		to {background-position: -100% 0;}
+	}
+.container:hover img {
+	-webkit-filter: blur(2px);
+}
+.container:hover .box {
+	background: #fff;
+	opacity: .1;
+	transition: all 0.2s ease-in-out;
+}
+.title::before {
+	content: "";
+	height: 316px;
+	width: 0;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border: 2px solid #fff;
+	border-left: none;
+	border-right: none;
+	visibility: hidden;
+}
+.title::after {
+	content: "";
+	height: 0;
+	width: 496px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	border: 2px solid #fff;
+	border-top: none;
+	border-bottom: none;
+	visibility: hidden;
+}
+.container:hover .title::before {
+	width: 100%;
+	left: 0;
+	visibility: visible;
+	transition: all 1s;
+}
+.container:hover .title::after {
+	height: 100%;
+	top: 0;
+	visibility: visible;
+	transition: all 1s;
+}
+.container:hover h1 {
+	visibility: visible;
+}
