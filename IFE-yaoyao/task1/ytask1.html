@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+	<style>
+	div {
+		margin-left: 100px;
+	}
+
+	label {
+		display: inline-block;
+		height: 30px;
+		padding-right: 10px;
+		text-align: right;
+		width: 80px;
+	}
+
+	input {
+		height: 20px;
+	}
+
+	button {
+		background: #000;
+		border-style: none;
+		color: #fff;
+		cursor: pointer;
+		height: 30px;
+		margin: 30px 0 0 100px;
+		width: 230px;	
+	}
+
+	p {
+		margin-left: 100px;
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<label for="name">名称</label>
+		<input type="text" id="name">
+		<p id="p1"></p>
+	</div>
+	<div>
+		<label for="password">密码</label>
+		<input type="password" id="password">
+		<p id="p2">lalla</p>
+	</div>
+	<div>
+		<label for="password2">密码确认</label>
+		<input type="password" id="password2">
+		<p id="p3"></p>
+	</div>
+	<div>
+		<label for="email">邮箱</label>
+		<input type="text" id="email">
+		<p id="p4"></p>
+	</div>
+	<div>
+		<label for="phone">电话</label>
+		<input type="text" id="phone">
+		<p id="p5"></p>
+	</div>
+	<button id="confirm">验证</button>
+	<script>
+	var inputval = document.getElementsByTagName('input');
+	var confirmbtn = document.getElementById('confirm');
+	var nameval = document.getElementById('name');
+	var password = document.getElementById('password');
+	var password2 = document.getElementById('password2');
+	var email = document.getElementById('email');
+	var phone = document.getElementById('phone');
+	// 验证名称
+	function f_name() {
+		var p1 = document.getElementById('p1');
+
+		nameval.onfocus = function(){
+			p1.style.display = "block";
+			p1.textContent = "必填，长度为4-16的字符串";
+		} 
+
+		nameval.onblur = function() {
+			var sum = 0;
+			for(var i = 0; i < nameval.value.length; i++) {
+				if(nameval.value.charCodeAt(i)>255||nameval.value.charCodeAt<0) {
+					sum += 2;
+				}
+				else
+					sum += 1;
+			}
+			if(sum > 3 && sum < 17) {
+				p1.textContent = "名字可用";
+				nameval.style.border = "1px solid green";
+			} else if(sum == 0) {
+				p1.textContent = "名字不能为空";
+				nameval.style.border = "1px solid red";
+			} else {
+				p1.textContent = "格式错误";
+				nameval.style.border = "1px solid red";
+			}
+		}
+	}
+	// 验证密码
+	function f_password() {
+		var p2 = document.getElementById('p2');
+
+		password.onfocus = function() {
+			p2.style.display = "block";
+			p2.textContent = "必填，长度为4-16位";
+		}
+
+		password.onblur = function() {
+			if(password.value.length > 3 && password.value.length < 17) {
+				p2.textContent = "密码可用";
+				password.style.border = "1px solid green";
+			} else if(password.value.length == 0) {
+				p2.textContent = "密码不能为空";
+				password.style.border = "1px solid red";
+			} else {
+				p2.textContent = "格式错误";
+				password.style.border = "1px solid red";
+			}
+		}
+	}
+	// 验证第二次输入密码
+	function f_password2() {
+		var p3 = document.getElementById('p3');
+
+		password2.onfocus = function() {
+			p3.style.display = "block";
+			p3.textContent = "必填，长度为4-16位";
+		}
+
+		password2.onblur = function() {
+			if(password2.value == password.value) {
+				p3.textContent = "两次密码输入一致";
+				password2.style.border = "1px solid green";
+			} else if(password2.value.length == 0) {
+				p3.textContent = "再次输入不能为空";
+				password2.style.border = "1px solid red";
+			} else {
+				p3.textContent = "两次密码输入不一致";
+				password2.style.border = "1px solid red";
+			}
+		}
+	}
+	// 验证邮箱
+	function f_email() {
+		var p4 = document.getElementById('p4');
+
+		var re = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/i;
+
+		email.onfocus = function() {
+			p4.style.display = "block";
+			p4.textContent = "必填";
+		}
+
+		email.onblur = function() {
+			if(re.test(email.value)) {
+				p4.textContent = "格式可用";
+				email.style.border = "1px solid green";
+			} else if(email.value.length == 0) {
+				p4.textContent = "邮箱不能为空";
+				email.style.border = "1px solid red";
+			} else {
+				p4.textContent = "格式错误";
+				email.style.border = "1px solid red";
+			}
+		}
+	}
+	// 验证电话
+	function f_phone() {
+		var p5 = document.getElementById('p5');
+
+		var re = /^1\d{10}$/;
+
+		phone.onfocus = function() {
+			p5.style.display = "block";
+			p5.textContent = "必填";
+		}
+
+		phone.onblur = function() {
+			if(re.test(phone.value)) {
+				p5.textContent = "电话可用";
+				phone.style.border = "1px solid green";
+			} else if(phone.value.length == 0) {
+				p5.textContent = "电话不能为空";
+				phone.style.border = "1px solid red"
+			} else {
+				p5.textContent = "格式错误";
+				phone.style.border = "1px solid red";
+			}
+		}
+	}
+
+	function f_confirm() {
+		var flag = true;
+		for(var i = 0; i < inputval.length; i++) {
+			if(inputval[i].style.border == "1px solid red") {
+				flag = false;
+			}
+		}
+		if(!flag) {
+			alert('输入有误');
+		} else {
+			alert('验证成功');
+		}
+
+	}
+
+    window.onload = function() {
+    	f_name();
+		f_password();
+		f_password2();
+		f_email();
+		f_phone();
+		confirmbtn.onclick = f_confirm;
+    }
+	</script>
+</body>
+</html>
