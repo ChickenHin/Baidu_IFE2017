@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task4</title>
+	<style>
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		position: relative;
+	}
+	.x {
+		margin-left: 450px;
+	}
+	.x span + span {
+		margin-left: 31px;
+	}
+	.y {
+		margin-left: 400px;
+		margin-top: 30px;
+	}
+	.y span {
+		display: block;
+	}
+	.y span+span {
+		margin-top: 27px;
+	}
+	.tab {
+		position: absolute;
+		left: 430px;
+		top: 30px;
+	}
+	table {
+		border: 2px solid #000;
+		border-collapse: collapse;
+	}
+	td {
+		border: 1px solid #ccc;
+		width: 45px;
+		height: 45px;
+	}
+	.operation1,.operation2,.operation3 {
+		margin-left: 490px;
+	}
+	.operation1 {
+		margin-top: 60px;
+	}
+	.operation2,.operation3 {
+		margin-top: 20px;
+	}
+	button {
+		width: 80px;
+		cursor: pointer;
+	}
+	#target {
+		position: absolute;
+		top: 256px;
+		left: 656px;
+		width: 45px;
+		height: 45px;
+		background-color: red;
+		border-top: 15px solid blue;
+	}
+	</style>
+</head>
+<body>
+	<div class="x">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+		<span>7</span>
+		<span>8</span>
+		<span>9</span>
+		<span>10</span>
+	</div>
+	<div class="y">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+		<span>7</span>
+		<span>8</span>
+		<span>9</span>
+		<span>10</span>
+	</div>
+
+	<div class="tab">
+	<table>
+		<tr class="row" id="row1">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row2">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row3">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row4">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row5">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row6">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row7">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row8">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row9">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+		<tr class="row" id="row10">
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+			<td class="square"></td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="target"></div>
+	<div class="operation1">
+		<button id="go">GO</button>
+		<button id="left">LEFT</button>
+		<button id="right">RIGHT</button>
+		<button id="back">BACK</button>
+	</div>
+	<div class="operation2">
+		<button id="tratop">TRA TOP</button>
+		<button id="traleft">TRA LEF</button>
+		<button id="trabottom">TRA BOT</button>
+		<button id="traright">TRA RIG</button>
+	</div>
+	<div class="operation3">
+		<button id="movtop">MOV TOP</button>
+		<button id="movleft">MOV LEF</button>
+		<button id="movbottom">MOV BOT</button>
+		<button id="movright">MOV RIG</button>
+	</div>
+
+	<script>
+	var target = document.getElementById('target');
+	target.style.transition = 'transform 1s,top 1s,left 1s';
+
+	var gobtn = document.getElementById('go');
+	var leftbtn = document.getElementById('left');
+	var rightbtn = document.getElementById('right');
+	var backbtn = document.getElementById('back');
+	// 方向不动，以屏幕为参照移动
+	var tratopbtn = document.getElementById('tratop');
+	var traleftbtn = document.getElementById('traleft');
+	var trabottombtn = document.getElementById('trabottom');
+	var trarightbtn = document.getElementById('traright');
+	// 方向改变，以屏幕为参照移动
+	var movtopbtn = document.getElementById('movtop');
+	var movleftbtn = document.getElementById('movleft');
+	var movbottombtn = document.getElementById('movbottom');
+	var movrightbtn = document.getElementById('movright');
+
+	var current = 0;
+	var deg = 0;
+	// 获取style
+	function getStyle(obj){
+				return obj.currentStyle ? obj.currentStyle : window.getComputedStyle(obj, null);
+			}
+	// 向屏幕上方走
+	function goTop() {
+		if(parseInt(getStyle(target).top)-45 < 30 || parseInt(getStyle(target).top)-45 > 437) {
+			alert("boundary");
+		} else {
+			target.style.top = parseInt(getStyle(target).top) - 45 + "px"; 
+		}
+	}
+	// 向屏幕左方走
+	function goLeft() {
+		if(parseInt(getStyle(target).left)-45 < 430 || parseInt(getStyle(target).left)-45 > 837) {
+			alert("boundary");
+		} else {
+			target.style.left = parseInt(getStyle(target).left) - 45 + "px";  
+		}
+	}
+	// 向屏幕右方走
+	function goRight() {
+		if(parseInt(getStyle(target).left)+45 < 430 || parseInt(getStyle(target).left)+45 > 837) {
+			alert("boundary");
+		} else {
+			target.style.left = parseInt(getStyle(target).left) + 45 + "px"; 
+		}
+	}
+	// 向屏幕下方走
+	function goBottom() {
+		if(parseInt(getStyle(target).top)+45 < 30 || parseInt(getStyle(target).top)+45 > 437) {
+			alert("boundary");
+		} else {
+			target.style.top = parseInt(getStyle(target).top) + 45 + "px"; 
+		}
+	}
+	// 方向转向屏幕上方，前进一格
+	function movTop() {
+		if(parseInt(getStyle(target).top)-45 < 30 || parseInt(getStyle(target).top)-45 > 437) {
+			alert("boundary");
+		} else {
+			while(current < 0) {
+		 		current += 4;
+		 	}
+
+			switch(current%4){
+					case 0: //top
+						break;
+					case 1: //left
+						turnRight();
+						break;
+					case 2: //down
+						turnBack();
+						break;
+					case 3: //right
+						turnLeft();
+						break;
+				}
+
+			target.style.top = parseInt(getStyle(target).top) - 45 + "px";
+		}
+
+	}
+	// 方向转向屏幕左侧，前进一格
+	function movLeft() {
+		if(parseInt(getStyle(target).left)-45 < 430 || parseInt(getStyle(target).left)-45 > 837) {
+			alert("boundary");
+		} else {
+			while(current < 0) {
+		 		current += 4;
+		 	}
+
+			switch(current%4){
+					case 0: //top
+						turnLeft();
+						break;
+					case 1: //left
+						break;
+					case 2: //down
+						turnRight();
+						break;
+					case 3: //right
+						turnBack();
+						break;
+				}
+
+			target.style.left = parseInt(getStyle(target).left) - 45 + "px";
+		}
+	}
+	// 方向转向屏幕下方，前进一格
+	function movBottom() {
+		if(parseInt(getStyle(target).top)+45 < 30 || parseInt(getStyle(target).top)+45 > 437) {
+			alert("boundary");
+		} else {
+			while(current < 0) {
+		 		current += 4;
+		 	}
+
+			switch(current%4){
+					case 0: //top
+						turnBack();
+						break;
+					case 1: //left
+						turnLeft();
+						break;
+					case 2: //down
+						break;
+					case 3: //right
+						turnRight();
+						break;
+				}
+
+			target.style.top = parseInt(getStyle(target).top) + 45 + "px";	
+		}
+	}
+	// 方向转向屏幕右侧，前进一格
+	function movRight() {
+		if(parseInt(getStyle(target).left)+45 < 430 || parseInt(getStyle(target).left)+45 > 837) {
+			alert("boundary");
+		} else {
+			while(current < 0) {
+		 		current += 4;
+		 	}
+
+			switch(current%4){
+					case 0: //top
+						turnRight();
+						break;
+					case 1: //left
+						turnBack();
+						break;
+					case 2: //down
+						turnLeft();
+						break;
+					case 3: //right
+						break;
+				}
+
+			target.style.left = parseInt(getStyle(target).left) + 45 + "px";
+		}
+	}
+	// 沿着方向前进一格
+	function goAhead() {
+		while(current < 0) {
+		 	current += 4;
+		 }
+
+		switch(current%4){
+					case 0: //top
+						goTop();
+						break;
+					case 1: //left
+						goLeft();
+						break;
+					case 2: //down
+						goBottom();
+						break;
+					case 3: //right
+						goRight();
+						break;
+				}
+	}
+	// 向后转
+	function turnBack() {
+		deg += 180;
+		target.style.transform = "rotate(" + deg + "deg)";
+		current += 2;
+	}
+	// 逆时针转一个方向
+	function turnLeft() {
+		deg -= 90;
+		target.style.transform = "rotate(" + deg + "deg)";
+		current++;
+		
+	}
+	// 顺时针转一个方向
+	function turnRight() {
+		deg += 90;
+		target.style.transform = "rotate(" + deg + "deg)";
+		current--;
+	}
+
+	window.onload = function() {
+		gobtn.addEventListener('click',goAhead);
+		backbtn.addEventListener('click',turnBack);
+		leftbtn.addEventListener('click',turnLeft);
+		rightbtn.addEventListener('click',turnRight);
+
+		tratopbtn.addEventListener('click',goTop);
+		traleftbtn.addEventListener('click',goLeft);
+		trabottombtn.addEventListener('click',goBottom);
+		trarightbtn.addEventListener('click',goRight);
+
+		movtopbtn.addEventListener('click',movTop);
+		movleftbtn.addEventListener('click',movLeft);
+		movbottombtn.addEventListener('click',movBottom);
+		movrightbtn.addEventListener('click',movRight);
+	}
+
+	</script>
+	
+</body>
+</html>
