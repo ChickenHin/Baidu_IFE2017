@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task6</title>
+	<style>
+	#layer {
+		background: #000;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width:300px;	
+	}
+	#confirm {
+		margin:0 0 20px 110px;
+		width: 80px;
+	}
+	h4 {
+		background: #fff;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		line-height: 30px;
+		margin: 0;
+		text-align: center;
+		width: 300px;	
+	}
+	p {
+		line-height: 20px;
+		padding: 0 16px;	
+	}
+	</style>
+</head>
+<body>
+	<button id="showlayer">点击显示浮出层</button>
+	
+	<div id="mask">
+		<div id="layer">
+		<h4>this is a popup layer</h4>
+		<p>you can move it by dragging out the head</p>
+		<button id="confirm">yes</button>
+	</div>
+	</div>
+	<script>
+	var showBtn = document.getElementById('showlayer');
+	var layer = document.getElementById('layer');
+	var confirmBtn = document.getElementById('confirm');
+	var maskEle = document.getElementById('mask');
+
+	var EventUtil = {
+		addHandler: function(element,type,handler) {
+			if(element.addEventListener) {
+				element.addEventListener(type,handler,false);
+			} else if(element.attachEvent) {
+				element.attachEvent("on"+type,handler);
+			} else {
+				element["on"+type] = handler;
+			}
+		},
+		removeHandler:function(element,type,handler) {
+			if(element.removeEventListener) {
+				element.removeEventListener(type,handler,false);
+			} else if(element.detachEvent) {
+				element.detachEvent("on"+type,handler);
+			} else {
+				element["on"+type] = null;
+			}
+		}
+	};
+
+	function Pop(element,mask) {
+		this.element = element;
+		if(arguments[1] == null) {
+			this.maskElement = null;
+		} else {
+			this.maskElement = mask;
+		}
+		this.init();
+	}
+
+	Pop.prototype = {
+		// 显示浮出层和遮罩
+		show:function() {
+			this.maskElement.style.display = "block";
+			this.element.style.display = "block";
+			// 防止拖拽之后再次显示不居中
+			this.element.style.left = "50%";
+			this.element.style.top = "50%";
+		},
+		// 隐藏浮出层和遮罩
+		hide:function() {
+			this.maskElement.style.display = "none";
+			this.element.style.display = "none";
+		},
+
+		init:function() {
+			// 设置遮罩
+			this.maskElement.style.width = window.screen.width + 'px';
+			this.maskElement.style.height = window.screen.height + 'px';
+			this.maskElement.style.position = "fixed";
+			this.maskElement.style.top = "50%";
+			this.maskElement.style.left = "50%";
+			this.maskElement.style.transform = "translate(-50%,-50%)";
+			this.maskElement.style.backgroundColor = "#ccc";
+			this.maskElement.style.display = "none";
+			// 设置浮出层
+			this.element.style.position = "absolute";
+			this.element.style.top = "50%";
+			this.element.style.left = "50%";
+			this.element.style.transform = "translate(-50%,-50%)";
+			this.element.style.display = "none";
+
+			var self = this;
+			EventUtil.addHandler(this.maskElement,"click",function() {
+				self.hide();
+			});
+			// 防止事件冒泡
+			EventUtil.addHandler(this.element, "click", function(event){
+				var event = event ? event : window.event;
+				if(event.stopPropagation){
+					event.stopPropagation();
+				}else{
+					event.cancelBubble = true;
+				}
+			});
+			
+			this.dragNode(this.element.children[0]);
+		},
+		// 拖拽浮出层
+		dragNode:function(node) {
+			node.style.cursor = "move";
+			var self = this;
+
+			EventUtil.addHandler(node,"mousedown",function(event) {
+				var event = event ? event : window.event;
+				var x = event.clientX - self.element.offsetLeft;
+				var y = event.clientY - self.element.offsetTop;
+
+				var move = function(event) {
+					var event = event ? event : window.event;
+					self.element.style.left = event.clientX - x + "px";
+					self.element.style.top = event.clientY - y + "px";
+				}
+
+				EventUtil.addHandler(document,"mousemove",move);
+				EventUtil.addHandler(document,"mouseup",function() {
+					EventUtil.removeHandler(document,"mousemove",move);
+				});
+			});
+		}
+	};
+
+	var pop = new Pop(layer,maskEle);
+	EventUtil.addHandler(showBtn,"click",function() {
+		pop.show();
+	})
+	EventUtil.addHandler(confirmBtn,"click",function() {
+		pop.hide();
+	})
+	</script>
+</body>
+</html>
