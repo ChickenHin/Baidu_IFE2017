@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task7</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	table{
+		border-collapse: collapse;
+		border: 2px solid #000;
+		margin: 20px auto;
+	}
+
+	table th,td{
+		width: 120px;
+		height: 60px;
+		text-align: center;
+	}
+
+	table th{
+		background-color: #ccc;
+		position: relative;
+	}
+
+	.arrowUp{
+		width: 0;
+		height: 0;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-bottom: 16px solid #fff;
+		position: absolute;
+		top: 10px;
+		left: 90px;
+	}
+
+	.arrowUp:hover{
+		cursor: pointer;
+	}
+
+	.arrowDown{
+		width: 0;
+		height: 0;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-top: 16px solid #fff;
+		position: absolute;
+		top: 35px;
+		left: 90px;
+	}
+
+	.arrowDown:hover{
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<table border="1">
+    <thead id="thead">
+      <th>姓名</th>
+      <th>语文
+        <div class="arrowUp"></div>
+        <div class="arrowDown"></div>
+      </th>	
+      <th>数学
+        <div class="arrowUp"></div>
+        <div class="arrowDown"></div>
+      </th>	
+      <th>英语
+        <div class="arrowUp"></div>
+        <div class="arrowDown"></div>
+      </th>	
+      <th>总分
+        <div class="arrowUp"></div>			
+        <div class="arrowDown"></div>
+      </th>
+    </thead>
+    <tbody id="tbody">
+    	
+    </tbody>
+  </table>
+<script>
+var tbody = document.getElementById("tbody");
+var thead = document.getElementById("thead");
+
+var arrScore = [['小明',80,90,70],
+                ['小红',90,60,90],
+                ['小亮',60,100,70],
+                ['小黄',99,85,100],
+                ['小张',80,75,55]
+               ];
+// 事件绑定与移除
+var EventUtil = {
+	addHandler: function(element, type, handler){
+		if(element.addEventListener){
+			element.addEventListener(type, handler, false);
+		}else if(element.attachEvent){
+			element.attachEvent("on" + type, handler);
+		}else {
+			element["on" + type] = handler;
+		}
+	},
+	removeHandler: function(element, type, handler){
+		if(element.removeEventListener){
+			element.removeEventListener(type, handler, false);
+		}else if(element.detachEvent){
+			element.detachEvent("on" + type, handler);
+		}else{
+			element["on" + type] = null; 
+		}
+	}
+};
+// 计算总分
+function sumScore(arr) {
+	for(var i = 0; i < arr.length; i++) {
+	  var sum = 0;
+	  for(var j = 1; j < arr[i].length; j++) {
+        sum += arr[i][j];  
+	  }
+	  arr[i].push(sum);
+	}
+}
+// 创建表格
+function createTbody(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    var trNew = document.createElement("tr");
+    for(var j = 0; j < arr[i].length; j++) {
+      var tdNew = document.createElement("td");
+      tdNew.innerHTML = arr[i][j];
+      trNew.appendChild(tdNew);
+    }
+    tbody.appendChild(trNew);
+  }
+}
+// 冒泡排序升序
+function sortUp(index) {
+	var tr = tbody.getElementsByTagName('tr');
+	var tempTr;
+	for(var i = 0; i < tr.length - 1; i++) {
+		for(var j = 0; j < tr.length - i - 1; j++) {
+			if(parseInt(tr[j].getElementsByTagName('td')[index].innerHTML) > parseInt(tr[j+1].getElementsByTagName('td')[index].innerHTML)) {
+				tempTr = tr[j].innerHTML;
+				tr[j].innerHTML = tr[j+1].innerHTML;
+				tr[j+1].innerHTML = tempTr;
+			}
+		}
+	}
+}
+// 冒泡排序降序
+function sortDown(index) {
+	var tr = tbody.getElementsByTagName('tr');
+	var tempTr;
+	for(var i = 0; i < tr.length - 1; i++) {
+		for(var j = 0; j < tr.length - i - 1; j++) {
+			if(parseInt(tr[j].getElementsByTagName('td')[index].innerHTML) < parseInt(tr[j+1].getElementsByTagName('td')[index].innerHTML)) {
+				tempTr = tr[j].innerHTML;
+				tr[j].innerHTML = tr[j+1].innerHTML;
+				tr[j+1].innerHTML = tempTr;
+			}
+		}
+	}
+}
+
+window.onload = function() {
+	sumScore(arrScore);
+	createTbody(arrScore);
+	var th = thead.getElementsByTagName("th"); 
+
+	for(var i = 1; i < th.length; i++) {
+		// 升序按钮点击事件
+		(function(j) {
+			EventUtil.addHandler(th[j].getElementsByTagName('div')[0],'click',function() {
+			sortUp(j);
+			});
+		})(i);
+		// 降序按钮点击事件
+		(function(j) {
+			EventUtil.addHandler(th[j].getElementsByTagName('div')[1],'click',function() {
+			sortDown(j);
+			});
+		})(i);
+	}
+}
+
+</script>
+</body>
+</html>
