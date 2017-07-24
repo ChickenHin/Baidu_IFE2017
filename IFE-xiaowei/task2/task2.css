@@ -1,0 +1,173 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑",serif;
+}
+body {
+	background-color: rgb(222,222,222);
+}
+header {
+	background-color: rgb(51,51,51);
+	height: 70px;
+}
+article {
+	background-color: white;
+	margin-top: 25px;
+	margin-left: 25px;
+	margin-right: 25px;
+	padding-top: 35px;
+	padding-bottom: 35px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-top:1px solid rgb(200,200,200);
+	box-shadow: 3px 3px 3px #848484;
+}
+header img {
+	display: inline-block;
+	height: 70px;
+	/*vertical-align: center;*/
+	/*margin: 10px 0 10px 25px;*/
+	width: auto;
+	margin-left: 25px;
+	border:none;
+}
+nav {
+	line-height: 70px;
+	float: right;
+	margin-right: 25px;
+}
+.navigation li {
+	float: left;
+	margin-left: 30px;
+}
+.navigation a {
+	color: white;
+	text-decoration: none;
+}
+.forth a {
+	color: rgb(222,222,222);
+}
+article .second-title {
+	font-size: 1.2em;
+	color: rgb(132,132,132);
+	margin-top: 20px;
+}
+article .author-time {
+	font-size: 0.9em;
+	margin-top: 15px;
+}
+article .article-content {
+	margin-top: 10px;
+}
+article div p {
+	line-height: 30px;
+	text-indent: 2em;
+}
+img {
+	border: 1px solid black;
+}
+article .article-picture {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+article ul {
+	list-style: none;
+	margin-left: 15px;
+}
+.picture div {
+	border: 1px solid rgb(222,222,222);
+	margin-top: 20px;
+	margin-left: 3em;
+	padding: 10px;
+	width: 500px;
+}
+.picture div p {
+	text-align: center;
+}
+.picture div img {
+	width: 498px;
+}
+.article3 ol {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.article3 li {
+	margin-left: 40px;
+	line-height: 30px;
+}
+.article3 table {
+	border-collapse: collapse;
+	width: 100%;
+	text-align: left;
+}
+.article3 th {
+	background-color: rgb(51,51,51);
+	color: white;
+}
+.article3 table,th,td {
+	border: 1px solid rgb(132,132,132);
+}
+.article3 .sum td {
+	background-color: rgb(132,132,132);
+	/*text-align: center;*/
+}
+.article3 th,td {
+	padding: 0.35em;
+}
+.sidebar h1 {
+	font-size: 1.2em;
+	border-left: 3px solid rgb(222,222,222);
+	padding: 15px;
+}
+.sidebar form {
+	line-height: 50px;
+}
+.sidebar input {
+	margin-left: 10px;
+}
+.sidebar select {
+	margin-left: 10px;
+}
+.sidebar textarea {
+	margin-left: 10px;
+	vertical-align: top;
+}
+form .email-address {
+	margin-left: 325px;
+}
+form .tip {
+	margin-left: 455px;
+	margin-top: -10px;
+	color: rgb(222,222,222);
+}
+form .description {
+	margin-left: 373px;
+}
+form .input-password {
+	margin-left: 356px;
+}
+form .second-input {
+	margin-left: 324px;
+}
+form .two-words {
+	margin-left: 405px;
+}
+form button {
+	width: 100%;
+	background-color: rgb(51,85,208);
+	color: white;
+	border-radius: 12px;
+	height: 40px;
+	font-size: 1.3em;
+	margin-top: 30px;
+}
+footer {
+	height: 100px;
+	background-color: black;
+	margin-top: 25px;
+	color: white;
+}
+footer p {
+	line-height: 100px;
+	text-align: center;
+}
