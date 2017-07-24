@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task3</title>
+	<style>
+	#indetail {
+		display: none;
+	}
+
+	#outdetail {
+		display: none;
+	}
+	</style>
+
+</head>
+<body>
+	<input type="radio" id="inschool" name="student">在校生
+	<input type="radio" id="outschool" name="student">非在校生
+	<div id="indetail">
+	<select name="" id="city">
+		<option value="beijing">北京</option>
+		<option value="shanghai">上海</option>
+	</select>
+	<select name="" id="school">
+		<option value="">北京大学</option>
+		<option value="">清华大学</option>
+		<option value="">人民大学</option>
+	</select>
+	</div>
+	<div id="outdetail">
+		<label for="company">就业单位</label>
+		<input type="text" name="company">
+	</div>
+	<script>
+	var inschool = document.getElementById('inschool');
+	var outschool = document.getElementById('outschool');
+	var city = document.getElementById('city');
+	var school = document.getElementById('school');
+	var outdetail = document.getElementById('outdetail');
+	var indetail = document.getElementById('indetail');
+	// 非在校生隐藏城市和学校
+	outschool.onclick = function() {
+		outdetail.style.display = "block";
+		indetail.style.display = "none";
+	}
+	// 在校生隐藏就业单位
+	inschool.onclick = function() {
+		indetail.style.display = "block";
+		outdetail.style.display = "none";
+	}
+	// 城市学校相匹配
+	function cityschool() {
+		data = [
+			["北京大学","清华大学","人民大学"],
+			["上海交通大学","复旦大学","同济大学"]
+		];
+
+		var index = city.selectedIndex;
+		for( var i = 0; i < data[index].length; i++) {
+			var options1 = document.createElement('option');
+			options1.innerHTML = data[index][i];
+			school.appendChild(options1);
+		}
+	}
+
+	city.onchange = function() {
+		school.innerHTML = "";
+		cityschool();
+	}
+	</script>
+</body>
+</html>
