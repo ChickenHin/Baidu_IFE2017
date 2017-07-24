@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task8</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	#container {
+		background-color: #ccc;
+		border: 1px solid #999;
+		padding: 20px;
+		overflow: auto;
+	}
+	span {
+		/*color: red;*/
+		display: block;
+		height: 50px;
+		margin:10px;
+		padding: 15px;
+		color: red;
+		border: 1px solid #999;
+		background-color: #eee;
+		text-align: center;
+	}
+	.row {
+		margin: -10px;
+	}
+	div[class*="col-"] {
+		float: left;
+	}
+	@media(max-width:768px) {
+		.col-sm-2{width:16.66666667%;}
+		.col-sm-3{width:25%;}
+		.col-sm-6{width:50%;}
+		.col-sm-8{width:66.66666667%;}
+		.col-sm-12{width:100%;}
+	}
+	@media(min-width:768px) {
+		.col-md-1{width:8.33333333%;}
+		.col-md-2{width:16.66666667%;}
+		.col-md-3{width:25%;}
+		.col-md-4{width:33.33333333%;}
+		.col-md-6{width:50%;}
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-6"><span>四栏；六栏</span></div>
+			<div class="col-md-4 col-sm-6"><span>四栏；六栏</sapn></div>
+			<div class="col-md-4 col-sm-12"><span>四栏；十二栏</span></div>
+			<div class="col-md-3 col-sm-3"><span>三栏；三栏</span></div>
+			<div class="col-md-6 col-sm-6"><span>六栏；六栏</span></div>
+			<div class="col-md-3 col-sm-3"><span>三栏；三栏</span></div>
+			<div class="col-md-1 col-sm-2"><span>一栏；两栏</span></div>
+			<div class="col-md-1 col-sm-2"><span>一栏；两栏</span></div>
+			<div class="col-md-2 col-sm-8"><span>两栏；八栏</span></div>
+			<div class="col-md-2 col-sm-3"><span>两栏；三栏</span></div>
+			<div class="col-md-6 col-sm-3"><span>六栏；三栏</span></div>
+		</div>
+	</div>
+</body>
+</html>
