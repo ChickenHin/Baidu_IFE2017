@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js tree</title>
+	<style>
+		div{
+			cursor:pointer;
+			display:flex;
+			justify-content:space-around;
+			flex-direction:row;
+			align-items:center;
+			border:1px solid #000;
+		}
+
+		#root {
+			height: 400px;
+			width: 1200px;
+			margin: 0 auto;
+			margin-top: 100px;
+		}
+
+		.level1 {
+			height: 360px;
+		}
+
+		#l {
+			width: 300px;
+		}
+
+		#m {
+			width: 500px;
+		}
+
+		#r {
+			width: 100px;
+		}
+
+		.level2 {
+			height: 220px;
+			width: 260px;
+		}
+
+		.level3 {
+			height: 180px;
+			width: 50px;
+		}
+
+		.level4 {
+			height: 220px;
+			width: 80px;
+		}
+
+		.newNode {
+			width: 10%;
+			height: 80%;
+		}
+	</style>
+</head>
+<body>
+	<div id="root"><span>0</span>
+		<div id="l" class="level1"><span>1</span>
+			<div id="ll" class="level2"><span>2</span>
+				<div id="lll" class="level3"><span>3</span></div>
+				<div id="lli" class="level3"><span>4</span></div>
+				<div id="llr" class="level3"><span>5</span></div>
+			</div>
+		</div>
+		<div id="m" class="level1"><span>6</span>
+			<div id="rl" class="level4"><span>7</span></div>
+			<div id="ri" class="level4"><span>8</span></div>
+			<div id="ri" class="level4"><span>9</span></div>
+			<div id="ri" class="level4"><span>10</span></div>
+		</div>
+		<div id="r" class="level1"><span>11</span></div>
+	</div>
+
+
+	<button id="pre">pre</button>
+	<button id="in">in</button>
+	<button id="post">post</button>
+	<input type="text" id="query_value">
+	<button id="query">查询</button>
+	<button id="delete">删除</button>
+	<input type="text" id="add_value">
+	<button id="add">添加</button>
+
+	<script>
+	var root = document.getElementById('root');
+	var preBtn = document.getElementById('pre');
+	var inBtn = document.getElementById('in');
+	var postBtn = document.getElementById('post');
+	var queryVal = document.getElementById('query_value');
+	var queryBtn = document.getElementById('query');
+	var divs = document.getElementsByTagName('div');
+	var addBtn = document.getElementById('add');
+	var deleteBtn = document.getElementById('delete');
+	var addVal = document.getElementById('add_value');
+
+	var timer = 0;
+	var flag = false;
+
+	var targetNode = null;
+
+	var n = divs.length;
+	
+	// 遍历到的节点背景黄色
+	function show(node) {
+		setTimeout(function() {
+			node.style.backgroundColor = "#ff524a";
+		},timer+=500);
+		setTimeout(function() {
+			node.style.backgroundColor = "#ffffff";
+		},timer+=500);
+	}
+
+	// 找到与key相匹配的节点
+	function check(node,key) {
+		if(node.getElementsByTagName('span')[0].innerHTML == key) {
+			setTimeout(function(){
+				node.style.backgroundColor = "blue";
+			},timer+=500);
+			flag = true;
+		}
+	}
+	// 多个子节点先序遍历
+	function preOrder(root) {
+		if(root) {
+			show(root);
+			nodeList.push(root);
+			var children = root.getElementsByTagName('div');
+			for (var i = 0; i < children.length; i++) {
+			//只选择子一层div
+				if(children[i].parentNode == root) {
+					preOrder(children[i]);
+				}
+			}
+			
+		}
+	}
+
+	// 先序查询
+	function preOrderSearch(root,key) {
+		if(root && flag!=true) {
+			show(root);
+			check(root,key);
+			var children = root.getElementsByTagName('div');
+			for (var i = 0; i < children.length; i++) {
+			//只选择子一层div
+				if(children[i].parentNode == root) {
+					preOrderSearch(children[i], key);
+				}
+			}
+		}
+	}
+
+	// 两个子节点中序遍历
+	function inOrder(root) {
+		if(root) {
+			inOrder(root.children[0]);
+			show(root);
+			inOrder(root.children[1]);
+		}
+	}
+
+	// 两个子节点后序遍历
+	function postOrder(root) {
+		if(root) {
+			postOrder(root.children[0]);
+			postOrder(root.children[1]);
+			show(root);
+		}
+	}
+
+	// 初始化树
+	function initBox() {
+		for (var i = 0; i < divs.length; i++) {
+			divs[i].style.backgroundColor = "#fff";
+		}
+	}
+
+	// 获取点击节点
+	function clickNode() {
+		for(var i = 0; i < n; i++) {
+			divs[i].addEventListener('click',function(event) {
+				initBox();
+				this.style.backgroundColor = "#666";
+				event.stopPropagation();
+				targetNode = this;
+			},false);
+		}
+	}
+
+	// 删除所选节点
+	function del() {
+		if(targetNode) {
+			targetNode.parentNode.removeChild(this);
+			targetNode = null;
+		} else {
+			alert("请选择一个元素");
+		}
+	}
+
+	// 向所选节点添加子节点
+	// 子节点的宽度和高度控制的不好
+	// 新添加的节点不能选中
+	function add(val) {
+		if(targetNode) {
+			var newNode = document.createElement('div');
+			var newSpan = document.createElement('span');
+			newSpan.innerHTML = val;
+			newNode.style.backgroundColor = "#fff";
+			newNode.addClass="newNode";
+			newNode.appendChild(newSpan);
+			this.appendChild(newNode);
+			n++;
+		} else {
+			alert("请选择一个元素");
+		}
+		
+	}
+
+	preBtn.addEventListener("click",function () {
+		initBox();
+    	preOrder(root);
+    	timer=0;
+	},false);
+	inBtn.addEventListener("click",function () {
+    	inOrder(root);
+    	timer=0;
+	},false);
+	postBtn.addEventListener("click",function () {
+    	postOrder(root);
+    	timer=0;
+	},false);
+	queryBtn.addEventListener('click',function() {
+		initBox();
+		preOrderSearch(root,queryVal.value);
+		timer = 0;
+	},false);
+	deleteBtn.addEventListener('click',function() {
+		del.call(targetNode);
+	},false);
+	addBtn.addEventListener('click',function() {
+		add.apply(targetNode,[].concat(addVal.value));
+		addVal.value = "";
+	},false);
+
+	clickNode();
+	</script>
+</body>
+</html>
