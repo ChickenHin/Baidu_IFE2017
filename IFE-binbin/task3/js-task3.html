@@ -74,6 +74,7 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
+  var fragment = document.createDocumentFragment();
   var newul = document.getElementById("resort");
   var num = ['一','二','三','四','五','六','七'];
 
@@ -83,8 +84,9 @@ function render(data) {
     list.textContent = "第" + num[i] + "名：" + data[i][0] + "空气质量：";
     boldp.textContent = data[i][1];
     list.appendChild(boldp);
-    newul.appendChild(list);
+    fragment.appendChild(list);
   }
+  newul.appendChild(fragment);
 }
 
 function btnHandle() {
