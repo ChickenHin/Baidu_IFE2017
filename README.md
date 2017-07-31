@@ -64,3 +64,10 @@
 任务八：[响应式网格（栅格化）布局](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task8/task8.html)
 
 任务九：[使用HTML/CSS实现一个复杂页面](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task7/task7.html)
+
+### 斌斌学院：<br>
+任务一：[零基础JavaScript编码(一)](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task1/js-task1.html)
+任务二：[零基础JavaScript编码（二）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task2/js-task2.html)
+任务三：[零基础JavaScript编码（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task3/js-task3.html)
+任务四：[基础JavaScript练习（一）（二）（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task4/js-task4.html)
+任务九：[基础JavaScript练习（一）（二）（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task9/js-task9.html)
