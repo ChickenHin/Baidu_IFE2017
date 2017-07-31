@@ -33,28 +33,34 @@
   * 容器display:flex;左width:200px;右width:200px;中flex:1;
   * 顺序无所谓，可以通过order设置
   * 缺点：兼容性不是很好
+<br>
 任务四：[定位和居中问题](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task4/task4.html)
 * 水平居中：
   * 块级元素：
-    * 宽度固定：margin:0 auto;或者position:absolute;left:50%;margin-left:-(width/2)px;
-    * 宽度不固定：position:absolute;left:50%;transform:translateY(-50%);
-    * 子元素设置display:inline-block;父元素设置text-align:center;
-    * 子元素父元素浮动float:left，父元素设置position:relative;left:50%;子元素设置position:relative;right:50%
+   * 宽度固定：margin:0 auto;或者position:absolute;left:50%;margin-left:-(width/2)px;
+   * 宽度不固定：position:absolute;left:50%;transform:translateY(-50%);
+   * 子元素设置display:inline-block;父元素设置text-align:center;
+   * 子元素父元素浮动float:left，父元素设置position:relative;left:50%;子元素设置position:relative;right:50%
   * 行内元素：
-    * text-align:center;
+   * text-align:center;
 * 垂直居中：
   * 块级元素：
-    * 高度固定：position:absolute;top:50%;margin-top:-50%;
-    * 高度不固定：position:absolute;top:50%;transform:translateY(-50%);
+   * 高度固定：position:absolute;top:50%;margin-top:-50%;
+   * 高度不固定：position:absolute;top:50%;transform:translateY(-50%);
   * 行内元素：
-    * padding-top == padding-bottom
-    * line-height == 容器height
-    * display:table-cell;vertical-align:middle;
-    * 父元素display:flex; justify-content: center;
+   * padding-top == padding-bottom
+   * line-height == 容器height
+   * display:table-cell;vertical-align:middle;
+   * 父元素display:flex; justify-content: center;
+<br>
 任务五：[零基础HTML及CSS编码（二）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task5/task5.html)
 * 表单中设置所有label右对齐text-align:right;
+<br>
 任务六：[通过HTML及CSS模拟报纸排版](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task6/task6.html)
 * 写的不好不好不好
-任务七：[实现常见的技术产品官网的页面架构及样式布局](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task7/task7.html)
+<br>
+任务七：[实现常见的技术产品官网的页面架构及样式布局](http://htmlpreview.github.io/https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task7/task7.html)
+<br>
 任务八：[响应式网格（栅格化）布局](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task8/task8.html)
+<br>
 任务九：[使用HTML/CSS实现一个复杂页面](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-xiaowei/task7/task7.html)
