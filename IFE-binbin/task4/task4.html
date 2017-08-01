@@ -34,6 +34,7 @@
 	var rightIn = document.getElementById("rightin");
 	var rightOut = document.getElementById("rightout");
 	var queue = document.getElementById("queue");
+	
 
 	//判定是否为数字
 	function CheckNum(data) {
@@ -46,51 +47,42 @@
 
 	//左侧入
 	leftIn.onclick = function() {	
-	var data = document.getElementById("data").value;
-	
-	if(CheckNum(data)){
-	var block = document.createElement("div");
-	block.textContent = data;
-	queue.insertBefore(block,queue.firstChild);
-	//点击元素从队列中删除没有实现
-	// block.onclick = function(e) {
-	// 	var parentElement = e.parentNode;
- 	// 			if(parentElement)
- 	// 				parentElement.removeChild(e);
-	// }
-	}
+		var data = document.getElementById("data").value;
+		
+		if(CheckNum(data)){
+			var block = document.createElement("div");
+			block.textContent = data;
+			queue.insertBefore(block,queue.firstChild);
+			block.onclick = function() {
+				queue.removeChild(this);
+			}
+		}
 	}
 
 	//左侧出
 	leftOut.onclick = function() {
-	if(queue.firstChild)
-	queue.removeChild(queue.firstChild);
-	else
-		alert("不存在的");
+		if(queue.firstChild) queue.removeChild(queue.firstChild);
+		else alert("不存在的");
 	}
  	
  	//右侧入
  	rightIn.onclick = function() {
- 	var data = document.getElementById("data").value;
- 	if(CheckNum(data)){
-	var block = document.createElement("div");
-	block.textContent = data;
-	queue.appendChild(block);
-	// block.onclick = function(e) {
-	// 	var parentElement = e.parentNode;
- 	// 			if(parentElement)
- 	// 				parentElement.removeChild(e);
-	// }
-	}
+	 	var data = document.getElementById("data").value;
+	 	if(CheckNum(data)){
+			var block = document.createElement("div");
+			block.textContent = data;
+			queue.appendChild(block);
+			block.onclick = function() {
+				queue.removeChild(this);
+			}
+		}
  	}
 
  	//右侧出
  	rightOut.onclick = function() {
- 	if(queue.lastChild)
-	queue.removeChild(queue.lastChild);
-	else
-		alert("不存在的");
- 	}
+	 	if(queue.lastChild) queue.removeChild(queue.lastChild);
+		else alert("不存在的");
+	} 
 
 </script>
 </body>
