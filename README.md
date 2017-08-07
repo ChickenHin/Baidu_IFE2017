@@ -67,7 +67,22 @@
 
 ### 斌斌学院：<br>
 任务一：[零基础JavaScript编码(一)](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task1/js-task1.html)
+<br>
 任务二：[零基础JavaScript编码（二）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task2/js-task2.html)
+<br>
 任务三：[零基础JavaScript编码（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task3/js-task3.html)
+<br>
 任务四：[基础JavaScript练习（一）（二）（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task4/js-task4.html)
-任务九：[基础JavaScript练习（一）（二）（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task9/js-task9.html)
+<br>
+任务九：[JavaScript和树（一）（二）（三）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-binbin/task9/js-task9.html)
+
+### 耀耀学院：<br>
+任务二：[表单（二）多个表单项的动态校验](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task1/ytask1.html)
+<br>
+任务三：[表单（三）联动](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task3/ytask3.html)
+<br>
+任务四：[听指令的小方块（一）（二）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task4/ytask4.html)
+<br>
+任务六：[UI组件之浮出层](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task6/ytask6.html)
+<br>
+任务七：[UI组件之排序表格](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task7/ytask7.html)
