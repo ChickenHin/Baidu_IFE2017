@@ -86,3 +86,19 @@
 任务六：[UI组件之浮出层](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task6/ytask6.html)
 <br>
 任务七：[UI组件之排序表格](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-yaoyao/task7/ytask7.html)
+
+### 糯米学院：<br>
+任务一：[有趣的鼠标悬浮模糊效果](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task1/index.html)
+<br>
+任务二：[动态数据绑定（一）](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task2/index.html)
+<br>
+任务三：[自定义网页右键菜单](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task3/index.html)
+<br>
+任务四：[使用CSS实现折叠面板](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task4/index.html)
+<br>
+任务五：[正则表达式之入门](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task5/index.html)
+<br>
+任务六：[CSS3饼状loading效果](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task6/index.html)
+<br>
+任务七：[CSS3实现3D 轮播图](http://htmlpreview.github.io/?https://github.com/ChickenHin/Baidu_IFE2017/blob/master/IFE-nuomi/task7/index.html)
+<br>
